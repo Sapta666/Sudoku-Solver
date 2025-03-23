@@ -1,0 +1,34 @@
+<div class="bg-light p-2 px-4 w-75 mx-auto rounded" *ngIf="isMatInit">
+    <!-- <table class="p-2 border border-2 mx-auto">
+        <tbody>
+            <tr *ngFor="let row of [].constructor(matSize); let i = index">
+                <td *ngFor="let col of [].constructor(matSize); let j = index" class=""
+                    [ngClass]="{'cell-border-end': (j+1)%3 == 0,
+                                'cell-border-bottom': (i+1)%3 == 0
+                                }"
+                >
+                    <input type="number" style="width: 50px; width: 50px; text-align: center;" (input)="onMatrixInput($event,i,j)">
+                </td>
+            </tr>
+        </tbody>
+    </table> -->
+    <div class="row">
+        <h3 class="text-center text-primary p-2">Input Matrix</h3>
+        <div class="col-4 p-2"  
+             [ngStyle]="{
+                            'border-top-left-radius' : (i == 0 ? '5px': '0'),
+                            'border-top-right-radius' : (i == 2 ? '5px': '0'),
+                            'border-bottom-left-radius' : (i == 6 ? '5px': '0'),
+                            'border-bottom-right-radius' : (i == 8 ? '5px': '0')
+                        }" 
+             style="border: 1px solid black;" *ngFor="let item of [].constructor(9); let i = index;">
+            <div class="row">
+                <div class="col-4 p-1" *ngFor="let item2 of [].constructor(9); let j = index;">
+                    <input class="text-center" style="width: 30px; aspect-ratio: 1/1;" type="number"                                                    
+                            [id]="i+','+j"                            
+                           (input)="onMatrixInput($event,i,j)">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="bg-light p-2 px-4 w-75 mx-auto rounded">
+    <div class="row">
+        <h3 class="text-center text-success p-2">Output Matrix</h3>
+        <div class="col-4 p-2" 
+             [ngStyle]="{
+                            'border-top-left-radius' : (i == 0 ? '5px': '0'),
+                            'border-top-right-radius' : (i == 2 ? '5px': '0'),
+                            'border-bottom-left-radius' : (i == 6 ? '5px': '0'),
+                            'border-bottom-right-radius' : (i == 8 ? '5px': '0')
+                        }" 
+             style="border: 1px solid black;" *ngFor="let item of [].constructor(9); let i = index;">
+            <div class="row">
+                <div class="col-4 p-1" *ngFor="let item2 of [].constructor(9); let j = index;">
+                    <input class="text-center" style="width: 30px; aspect-ratio: 1/1;" type="number" readonly="true"
+                        [id]="'output:'+i+','+j">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
